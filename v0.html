@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beatriz Oliveira - Estrategista de Campanhas de Vendas">
+    <title>Beatriz Oliveira - Estrategista de Campanhas de Vendas</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Adicionando Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --orange-50: #fff7ed;
+            --orange-100: #ffedd5;
+            --orange-200: #fed7aa;
+            --orange-300: #fdba74;
+            --orange-400: #fb923c;
+            --orange-500: #f97316;
+            --orange-600: #ea580c;
+            --orange-700: #c2410c;
+            --orange-800: #9a3412;
+            --orange-900: #7c2d12;
+            --pink-50: #fdf2f8;
+            --pink-100: #fce7f3;
+            --pink-200: #fbcfe8;
+            --pink-300: #f9a8d4;
+            --pink-400: #f472b6;
+            --pink-500: #ec4899;
+            --pink-600: #db2777;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--orange-500), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--orange-500), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            padding: 10px 18px;
+            color: var(--gray-600);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: var(--orange-50);
+            color: var(--orange-600);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gray-600);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 24px 60px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(36px, 7vw, 64px);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--orange-500), var(--pink-500));
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray-600);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange-500), var(--pink-500));
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.5);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--orange-600);
+            border: 2px solid var(--orange-200);
+        }
+
+        .btn-secondary:hover {
+            background: var(--orange-50);
+            border-color: var(--orange-400);
+        }
+
+        /* Nova seção de introdução */
+        .intro-section {
+            padding: 80px 24px;
+            background: linear-gradient(135deg, var(--orange-50), var(--pink-50));
+        }
+
+        .intro-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .intro-container h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gray-900);
+        }
+
+        .intro-container p {
+            font-size: 18px;
+            color: var(--gray-600);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        /* Seção de Identificação */
+        .identification-section {
+            padding: 80px 24px;
+            background: #fff;
+        }
+
+        .identification-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .identification-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            color: var(--gray-900);
+        }
+
+        .identification-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--gray-600);
+            margin-bottom: 48px;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .problem-card {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+
+        .problem-card:hover {
+            border-color: var(--orange-300);
+            background: var(--orange-50);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+        }
+
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--orange-500), var(--pink-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .problem-icon i {
+            color: #fff;
+            width: 24px;
+            height: 24px;
+        }
+
+        .problem-content h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 8px;
+        }
+
+        .problem-content p {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* Section */
+        .section {
+            padding: 80px 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 48px;
+            color: var(--gray-900);
+        }
+
+        .section-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            margin: 56px 0 28px;
+            color: var(--gray-600);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--orange-300);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--orange-100), var(--pink-100));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon i {
+            color: var(--orange-600);
+            width: 28px;
+            height: 28px;
+        }
+
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--gray-800);
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .services-grid.secondary .service-card {
+            background: var(--gray-50);
+            border-color: var(--gray-100);
+        }
+
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--orange-200), var(--pink-200));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(249, 115, 22, 0.2);
+        }
+
+        .about-image i {
+            width: 80px;
+            height: 80px;
+            color: var(--orange-600);
+        }
+
+        .about-text h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--gray-800);
+        }
+
+        .about-text p {
+            color: var(--gray-600);
+            margin-bottom: 16px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: linear-gradient(135deg, var(--orange-50), var(--pink-50));
+        }
+
+        .contact-card {
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 20px;
+            padding: 48px;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .contact-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--gray-800);
+        }
+
+        .contact-card p {
+            color: var(--gray-600);
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 32px 24px;
+            text-align: center;
+            background: var(--gray-900);
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        .footer .gradient-text {
+            font-weight: 600;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 1px solid var(--gray-200);
+                padding: 16px 24px;
+            }
+
+            .mobile-menu.active {
+                display: block;
+            }
+
+            .mobile-menu a {
+                display: block;
+                padding: 14px 0;
+                color: var(--gray-600);
+                text-decoration: none;
+                border-bottom: 1px solid var(--gray-100);
+                font-weight: 500;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Beatriz <span>Oliveira</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i data-lucide="menu" style="width:24px;height:24px;"></i>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home" onclick="toggleMenu()">Início</a>
+            <a href="#services" onclick="toggleMenu()">Serviços</a>
+            <a href="#about" onclick="toggleMenu()">Sobre</a>
+            <a href="#contact" onclick="toggleMenu()">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <p class="hero-badge">Estrategista de Campanhas de Vendas</p>
+        <h1 class="hero-title">Campanhas que <span class="gradient-text">vendem de verdade</span></h1>
+        <p class="hero-subtitle">Estruturo, planejo e executo campanhas focadas em conversão. Estratégia aplicada para negócios que querem vender mais.</p>
+        <div class="hero-buttons">
+            <a href="https://wa.me/5589999767984?text=Oi,%20Bia!%20Quero%20vender%20mais." class="btn btn-primary" target="_blank">
+                <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+                Quero vender mais
+            </a>
+            <a href="#services" class="btn btn-secondary">
+                <i data-lucide="arrow-down" style="width:18px;height:18px;"></i>
+                Ver serviços
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de introdução -->
+    <section class="intro-section">
+        <div class="intro-container">
+            <h2>Prazer, eu sou a <span class="gradient-text">Bia!</span></h2>
+            <p>Sou estrategista de campanhas de vendas e ajudo negócios a construírem comunicação que posiciona, engaja e converte. Nada de fórmula mágica — aqui é estratégia aplicada com foco em resultado real.</p>
+            <a href="profile.html" class="btn btn-primary">
+                <i data-lucide="user" style="width:18px;height:18px;"></i>
+                Me conheça
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção de identificação -->
+    <section class="identification-section" id="identification">
+        <div class="identification-container">
+            <h2 class="identification-title">Se identificou com <span class="gradient-text">algum desses problemas?</span></h2>
+            <p class="identification-subtitle">Se você está passando por alguma dessas situações, eu posso te ajudar.</p>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i data-lucide="trending-down"></i>
+                    </div>
+                    <div class="problem-content">
+                        <h3>Vendas estagnadas</h3>
+                        <p>Você posta, faz stories, mas as vendas não acompanham o esforço. Parece que nada funciona.</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="problem-content">
+                        <h3>Público desengajado</h3>
+                        <p>Seus seguidores não interagem, não comentam e não compram. Parece que você fala sozinha.</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i data-lucide="compass"></i>
+                    </div>
+                    <div class="problem-content">
+                        <h3>Sem direção clara</h3>
+                        <p>Você não sabe o que postar, quando postar ou como estruturar uma campanha que vende.</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i data-lucide="clock"></i>
+                    </div>
+                    <div class="problem-content">
+                        <h3>Tempo desperdiçado</h3>
+                        <p>Gasta horas criando conteúdo que não traz retorno. Seu marketing não é estratégico.</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i data-lucide="message-square-x"></i>
+                    </div>
+                    <div class="problem-content">
+                        <h3>Comunicação confusa</h3>
+                        <p>Seu público não entende o que você vende ou por que deveria comprar de você.</p>
+                    </div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i data-lucide="target"></i>
+                    </div>
+                    <div class="problem-content">
+                        <h3>Campanhas sem resultado</h3>
+                        <p>Já tentou lançar promoções e campanhas, mas não conseguiu converter como esperava.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <h2 class="section-title">Serviços <span class="gradient-text">principais</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="rocket"></i>
+                </div>
+                <h3>Campanhas de Vendas</h3>
+                <p>Estrutura completa de campanhas focadas em conversão, do planejamento à execução, com mensagens que levam o público à decisão.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="bar-chart-3"></i>
+                </div>
+                <h3>Análise Estratégica</h3>
+                <p>Diagnóstico estratégico do seu negócio, público e comunicação para identificar ajustes que destravam vendas e autoridade.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="smartphone"></i>
+                </div>
+                <h3>Gestão de Redes Sociais</h3>
+                <p>Gestão estratégica focada em engajamento, clareza de posicionamento e atração de clientes ideais — não apenas postagens.</p>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Também atuo com</h3>
+        <div class="services-grid secondary">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="camera"></i>
+                </div>
+                <h3>Storymaker / Cobertura de Eventos</h3>
+                <p>Produção estratégica de stories em tempo real, bastidores e cobertura de eventos para gerar presença, conexão e vendas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="calendar-check"></i>
+                </div>
+                <h3>Planejamento Estratégico</h3>
+                <p>Criação de campanhas e ações integradas entre o digital e o ponto físico, com foco em impacto e resultado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i data-lucide="pen-tool"></i>
+                </div>
+                <h3>Suporte de Criação de Conteúdo</h3>
+                <p>Direcionamento estratégico de conteúdo, ideias, formatos e apoio na execução para marcas que querem vender com consistência.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <h2 class="section-title">Sobre <span class="gradient-text">mim</span></h2>
+        <div class="about-content">
+            <div class="about-image">
+                <i data-lucide="user-circle"></i>
+            </div>
+            <div class="about-text">
+                <h3>Beatriz Oliveira</h3>
+                <p>Sou estrategista de campanhas de vendas. Meu trabalho é pensar, estruturar e direcionar ações que realmente geram resultado — não vendo fórmula mágica.</p>
+                <p>Atuo com negócios que querem sair do marketing genérico e construir uma comunicação que posiciona, engaja e converte. Estratégia aplicada, com foco em vendas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact-section" id="contact">
+        <div class="contact-card">
+            <h3>Vamos <span class="gradient-text">conversar?</span></h3>
+            <p>Entre em contato para descobrir como posso ajudar seu negócio a crescer.</p>
+            <div class="contact-methods">
+                <a href="https://wa.me/5589999767984?text=Oi,%20Bia!" class="btn btn-primary" target="_blank">
+                    <i data-lucide="message-circle" style="width:18px;height:18px;"></i>
+                    WhatsApp
+                </a>
+                <a href="https://instagram.com/beatrizoliveira" class="btn btn-secondary" target="_blank">
+                    <i data-lucide="instagram" style="width:18px;height:18px;"></i>
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 <span class="gradient-text">Beatriz Oliveira</span>. Marketing com propósito.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Close menu on scroll
+        window.addEventListener('scroll', () => {
+            document.getElementById('mobileMenu').classList.remove('active');
+        });
+    </script>
+</body>
+</html>

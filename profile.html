@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Conheça a história de Beatriz Oliveira - Estrategista de Marketing Digital">
+    <title>Sobre Beatriz Oliveira | Estrategista de Marketing Digital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    </noscript>
+
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        :root {
+            --orange-50: #fff7ed;
+            --orange-100: #ffedd5;
+            --orange-200: #fed7aa;
+            --orange-300: #fdba74;
+            --orange-400: #fb923c;
+            --orange-500: #f97316;
+            --orange-600: #ea580c;
+            --orange-700: #c2410c;
+            --orange-800: #9a3412;
+            --orange-900: #7c2d12;
+            --pink-50: #fdf2f8;
+            --pink-100: #fce7f3;
+            --pink-200: #fbcfe8;
+            --pink-300: #f9a8d4;
+            --pink-400: #f472b6;
+            --pink-500: #ec4899;
+            --pink-600: #db2777;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-300: #cbd5e1;
+            --gray-400: #94a3b8;
+            --gray-500: #64748b;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --gray-800: #1e293b;
+            --gray-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: #fff;
+            overflow-x: hidden
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(12px);
+            z-index: 50;
+            border-bottom: 1px solid var(--orange-100)
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--orange-500), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--orange-500);
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-back:hover {
+            background: var(--orange-600);
+            transform: translateY(-2px);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(135deg, var(--orange-50) 0%, #fff 50%, var(--pink-50) 100%);
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .profile-image-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to right, var(--orange-500), var(--pink-500));
+        }
+
+        .profile-img-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--orange-100);
+            margin-bottom: 1.5rem;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-img-large:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-card h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-card .subtitle {
+            font-size: 1.1rem;
+            color: var(--orange-600);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem 0.5rem 0;
+            background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 48, 108, 0.4);
+        }
+
+        .story-section {
+            padding: 5rem 0;
+            background: #fff;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-content h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, var(--orange-500), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-orange {
+            color: var(--orange-600);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-orange::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background-color: var(--orange-200);
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        .story-highlight {
+            background: var(--orange-50);
+            border-left: 4px solid var(--orange-500);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-highlight p {
+            font-style: italic;
+            color: var(--orange-800);
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-highlight::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 120px;
+            color: var(--orange-200);
+            font-family: Georgia, serif;
+            opacity: 0.5;
+        }
+
+        /* Timeline Section */
+        .timeline-section {
+            padding: 4rem 0;
+            background: var(--gray-50);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--orange-300), var(--pink-300));
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+            padding-right: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
+            padding-left: 50%;
+        }
+
+        .timeline-content {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            max-width: 350px;
+            position: relative;
+            border-top: 4px solid var(--orange-500);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--orange-500);
+            border-radius: 50%;
+            top: 20px;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -60px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -60px;
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--orange-600);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Cards Section */
+        .cards-section {
+            padding: 4rem 0;
+            background: #fff;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--orange-300);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--orange-100);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--orange-600);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--gray-600);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--orange-50) 0%, var(--pink-50) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--orange-500), var(--pink-500));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+
+        /* Mockup Section */
+        .mockup-section {
+            padding: 4rem 0;
+            background: #fff;
+        }
+
+        .mockup-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: #fff;
+            border-radius: 40px;
+            padding: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            position: relative;
+            border: 10px solid var(--gray-900);
+            overflow: hidden;
+        }
+
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: var(--gray-900);
+            border-radius: 0 0 10px 10px;
+            z-index: 10;
+        }
+
+        .mockup-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--orange-100), var(--pink-100));
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .mockup-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--orange-500), var(--pink-500));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .mockup-text {
+            text-align: center;
+            color: var(--gray-800);
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.1) 0%, transparent 70%);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(to right, var(--orange-500), var(--orange-600));
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: floatUp 15s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                font-size: 1.5rem
+            }
+
+            .profile-content {
+                grid-template-columns: 1fr 1.5fr;
+                text-align: left;
+            }
+
+            .profile-card h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 0;
+                justify-content: flex-start;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -50px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">Beatriz Oliveira</div>
+            <a href="index.html" class="btn-back">
+                <i data-lucide="arrow-left"></i>
+                Voltar
+            </a>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-content">
+                <div class="profile-image-container">
+                    <div class="profile-card">
+                        <img src="img/biaf.webp" alt="Beatriz Oliveira" class="profile-img-large" width="200" height="200">
+                        <h1>Beatriz Oliveira</h1>
+                        <p class="subtitle">Estrategista de Marketing Digital</p>
+                        <a href="https://instagram.com/beatrizoliveira" target="_blank" rel="noopener noreferrer" class="social-btn">
+                            <i data-lucide="instagram"></i>
+                            @beatrizoliveira
+                        </a>
+                    </div>
+                </div>
+
+                <div class="story-content">
+                    <h2>Minha <span class="gradient-text">História</span></h2>
+                    
+                    <p>Olá! Sou <span class="highlight-orange">Beatriz Oliveira</span>, estrategista de marketing digital especializada em campanhas de vendas que realmente <span class="highlight-orange">convertem</span>.</p>
+
+                    <p>Minha jornada começou quando percebi que muitos negócios incríveis estavam falhando não por falta de qualidade, mas por falta de <span class="highlight-orange">estratégia na comunicação</span>. Eles não sabiam como se posicionar, como falar com seu público ou como criar campanhas que realmente vendessem.</p>
+
+                    <div class="story-highlight">
+                        <p>"Decidi dedicar minha carreira a transformar essa realidade, ajudando empresas a comunicarem seu valor de forma autêntica e estratégica."</p>
+                    </div>
+
+                    <p>Hoje, trabalho com negócios de diversos segmentos, criando campanhas <span class="highlight-orange">personalizadas</span> que conectam marcas com seus clientes ideais. Meu foco não é apenas em postagens bonitas, mas em estratégias que geram <span class="highlight-orange">resultados reais e mensuráveis</span>.</p>
+
+                    <p>Acredito que cada negócio tem uma história única para contar, e meu trabalho é ajudar você a contar a sua da melhor forma possível.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Minha <span class="gradient-text">Trajetória</span></h2>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">
+                            <i data-lucide="sparkles"></i>
+                            <span>2016 - O Começo</span>
+                        </div>
+                        <p>Aos 17 anos, iniciei meu primeiro empreendimento com a venda de acessórios femininos. Foi ali que descobri minha paixão por marketing e vendas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">
+                            <i data-lucide="trending-up"></i>
+                            <span>2018 - Expansão</span>
+                        </div>
+                        <p>Abri minha primeira loja física e estruturei uma rede de revendedoras em cidades vizinhas, expandindo significativamente o alcance da marca.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">
+                            <i data-lucide="globe"></i>
+                            <span>2020 - Transição Digital</span>
+                        </div>
+                        <p>Desenvolvi um projeto educacional focado no posicionamento de empreendedores nas redes sociais, ensinando estratégias para o Instagram.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">
+                            <i data-lucide="target"></i>
+                            <span>2022 - Foco em Estratégia</span>
+                        </div>
+                        <p>Comecei a prestar consultoria especializada em campanhas de vendas e posicionamento de marca para mais de 20 empresas.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">
+                            <i data-lucide="star"></i>
+                            <span>2024 - Atualidade</span>
+                        </div>
+                        <p>Especialização em estratégias omnicanal, integrando presencial e digital para maximizar resultados dos meus clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section class="cards-section">
+        <div class="container">
+            <h2 class="section-title">Minha <span class="gradient-text">Abordagem</span></h2>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="message-circle"></i>
+                    </div>
+                    <h3>Comunicação Estratégica</h3>
+                    <p>Desenvolvo uma voz autêntica para sua marca que ressoa com seu público-alvo e cria conexões genuínas.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="bar-chart"></i>
+                    </div>
+                    <h3>Campanhas que Convertem</h3>
+                    <p>Crio estratégias de vendas focadas em resultados mensuráveis, do tráfego à conversão final.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3>Posicionamento de Marca</h3>
+                    <p>Ajudo você a se destacar no mercado com um posicionamento claro e diferencial competitivo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Em <span class="gradient-text">Números</span></h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Clientes Atendidos</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Campanhas Criadas</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Anos de Experiência</div>
+                </div>
+                
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Mockup Section -->
+    <section class="mockup-section">
+        <div class="container">
+            <h2 class="section-title">Minha <span class="gradient-text">Filosofia</span></h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; color: var(--gray-600);">Acredito que marketing não é só estética, é intenção, análise e movimento constante. Estou sempre em aperfeiçoamento porque o comportamento do consumidor muda todos os anos.</p>
+            
+            <div class="mockup-container">
+                <div class="phone-mockup">
+                    <div class="mockup-screen">
+                        <div class="mockup-icon">
+                            <i data-lucide="heart" width="40" height="40"></i>
+                        </div>
+                        <div class="mockup-text">
+                            <h3 style="margin-bottom: 1rem; color: var(--orange-700);">Movimento gera movimento</h3>
+                            <p>Quem trabalha com vendas precisa entender as mudanças para agir com clareza e estratégia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="floating-elements">
+            <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="floating-element" style="left: 30%; animation-delay: 3s;"></div>
+            <div class="floating-element" style="left: 50%; animation-delay: 6s;"></div>
+            <div class="floating-element" style="left: 70%; animation-delay: 9s;"></div>
+            <div class="floating-element" style="left: 90%; animation-delay: 12s;"></div>
+        </div>
+        
+        <div class="container">
+            <h2>Vamos transformar seu negócio juntos?</h2>
+            <p>Entre em contato e descubra como posso ajudar você a vender mais</p>
+            <a href="https://wa.me/5589999767984?text=Oi,%20Bia!%20Conheci%20sua%20hist%C3%B3ria%20e%20quero%20conversar%20sobre%20meu%20neg%C3%B3cio."
+                target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <i data-lucide="message-circle"></i>
+                Falar com Beatriz
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Inicializar ícones Lucide
+        lucide.createIcons();
+        
+        // Efeito de digitação para o título
+        document.addEventListener('DOMContentLoaded', function() {
+            const title = document.querySelector('.gradient-text');
+            if (title) {
+                const text = title.textContent;
+                title.textContent = '';
+                
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        title.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+                
+                setTimeout(typeWriter, 500);
+            }
+            
+            // Animação para cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.card-icon i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2)';
+                        icon.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.card-icon i');
+                    if (icon) {
+                        icon.style.transform = 'scale(1)';
+                    }
+                });
+            });
+            
+            // Contador animado para estatísticas
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumber = entry.target;
+                        const finalValue = parseInt(statNumber.textContent);
+                        const duration = 2000;
+                        const step = finalValue / (duration / 16);
+                        let current = 0;
+                        
+                        const timer = setInterval(() => {
+                            current += step;
+                            if (current >= finalValue) {
+                                statNumber.textContent = finalValue + (statNumber.textContent.includes('+') ? '+' : '');
+                                clearInterval(timer);
+                            } else {
+                                statNumber.textContent = Math.floor(current) + (statNumber.textContent.includes('+') ? '+' : '');
+                            }
+                        }, 16);
+                        
+                        observer.unobserve(statNumber);
+                    }
+                });
+            }, observerOptions);
+            
+            statNumbers.forEach(stat => observer.observe(stat));
+        });
+    </script>
+</body>
+
+</html>
