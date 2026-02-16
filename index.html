@@ -1,264 +1,513 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beatriz Oli | Links</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>BiaOli | Estética de Resultados</title>
+    
     <style>
         :root {
-            --primary-orange: #ff6a00;
-            --bg-light: #ffffff;
-            --bg-body: #f8f9fa;
-            --text-main: #2d2d2d;
-            --text-muted: #777777;
-            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --bg-premium: #F5F2EE; /* Tom bege areia da sua referência */
+            --text-main: #3D3935;  /* Cinza quente muito escuro */
+            --accent: #8C7D70;     /* Tom taupe para detalhes */
+            --white: #ffffff;
         }
 
-        * {
-            margin: 0;
+        * { 
+            box-sizing: border-box; 
+            -webkit-tap-highlight-color: transparent; 
+            margin: 0; 
             padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--bg-body);
+            background-color: var(--bg-premium);
+            color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
-            color: var(--text-main);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            background-color: var(--bg-light);
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        /* HEADER DESIGN OTIMIZADO */
-.header-section {
-    position: relative;
-    padding: 30px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.photo-frame {
-    width: 280px; /* Tamanho levemente menor para garantir que caiba em qualquer celular */
-    height: 280px;
-    border: 4px solid var(--primary-orange); /* Borda um pouco mais fina para ser elegante */
-    
-    /* Formato orgânico corrigido (gota suave) */
-    border-radius: 50% 50% 50% 5%; 
-    
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    background-color: #fff;
-}
-
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    
-    /* O SEGREDO DO ENQUADRAMENTO */
-    object-fit: cover; 
-    object-position: center 15%; /* Isso foca no topo da foto (rosto) e ignora os pés */
-    
-    display: block;
-}
-        /* NOME E BIO ABAIXO DA FOTO */
-        .profile-info {
-            text-align: center;
-            padding: 10px 20px 25px;
-        }
-
-        .profile-info h1 {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--primary-orange);
-            letter-spacing: -0.5px;
-        }
-
-        .profile-info p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-top: 5px;
-        }
-
-        /* LINKS SECTION */
-        .links-section {
-            padding: 0 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .link-card {
-            display: block;
-            width: 100%;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-decoration: none;
-        }
-
-        .link-card img {
-            width: 100%;
-            display: block;
-            border-radius: 24px; /* Mais arredondado = mais moderno */
-            box-shadow: 0 6px 20px rgba(255, 106, 0, 0.15);
-        }
-
-        .link-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* SOCIAL MEDIA */
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .social-icons a {
-            background: var(--primary-orange);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
-        }
-
-        /* FAQ SECTION OTIMIZADA */
-        .faq-section {
-            padding: 40px 25px;
-            background: #fffaf7;
-            border-radius: 40px 40px 0 0; /* Curva invertida no topo do FAQ */
-        }
-
-        .faq-section h3 {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            text-align: center;
-            color: var(--primary-orange);
-            text-transform: uppercase;
-        }
-
-        .faq-item {
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        .faq-item b {
-            display: block;
-            font-size: 0.95rem;
-            margin-bottom: 8px;
-        }
-
-        .faq-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* FOOTER MSG */
-        .mensagem-bia {
-            padding: 50px 30px;
-            text-align: center;
-            background: #fffaf7;
-        }
-
-        .mensagem-bia p {
-            font-size: 1rem;
-            color: var(--text-main);
-            font-style: italic;
-            font-weight: 500;
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        .mensagem-bia span {
-            display: block;
-            margin-top: 15px;
-            font-weight: 700;
-            color: var(--primary-orange);
-            font-size: 0.8rem;
-            text-transform: uppercase;
+        /* --- Animação de Entrada --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
         }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Hero Superior (Estilo Editorial) --- */
+        .hero-top {
+            width: 100%;
+            height: 65vh;
+            clip-path: ellipse(150% 100% at 50% 0%);
+            position: relative;
+            background-color: #ddd;
+        }
+
+        .hero-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .scroll-icon {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-10px);}
+            60% {transform: translateX(-50%) translateY(-5px);}
+        }
+
+        /* --- Seção Sobre Mim --- */
+        .section-intro {
+            text-align: center;
+            padding: 60px 25px;
+            max-width: 450px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .description {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-main);
+            margin-bottom: 25px;
+            letter-spacing: 0.3px;
+        }
+
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto;
+            opacity: 0.5;
+        }
+        .arrow-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    color: var(--accent); /* Usa a cor de destaque da Beatriz */
+    font-size: 1.2rem;
+    opacity: 0.7;
+    
+    /* Animação de flutuação e brilho */
+    animation: arrow-wave 2s infinite ease-in-out;
+}
+
+@keyframes arrow-wave {
+    0%, 100% {
+        transform: translateY(0);
+        text-shadow: 0 0 0px var(--accent);
+    }
+    50% {
+        transform: translateY(10px); /* Move para baixo como uma onda */
+        text-shadow: 0 0 15px var(--accent); /* Brilha no pico do movimento */
+        opacity: 1;
+    }
+}
+        /* --- Grid de Botões (Cards do Canva) --- */
+        .buttons-grid {
+            width: 90%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 20px 0 60px 0;
+        }
+
+        .btn-card {
+            width: 100%;
+            border-radius: 8px; /* Bordas mais retas transmitem mais seriedade/luxo */
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            text-decoration: none;
+        }
+
+        .btn-card img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s;
+        }
+
+        .btn-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+        }
+
+        .btn-card:active { transform: scale(0.98); }
+
+        /* --- Call To Action & Rodapé --- */
+        .cta-box {
+            text-align: center;
+            padding: 80px 30px;
+            background: linear-gradient(to bottom, transparent, #EAE7E1);
+            width: 100%;
+        }
+
+        .cta-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(61, 57, 53, 0.15);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--text-main);
+            color: var(--white);
+            border-color: var(--text-main);
+        }
+
+        .hero-bottom {
+            width: 100%;
+            height: 45vh;
+            clip-path: ellipse(120% 100% at 50% 100%);
+            margin-top: -20px;
+        }
+
+        .hero-bottom img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+        /* =========================================
+   BOTÃO WHATSAPP FLUTUANTE
+   ========================================= */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+/* =========================================
+   MODAL DE MENSAGENS (GLASSMORPHISM)
+   ========================================= */
+.wpp-modal {
+    display: none; /* Controlado pelo JS */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay escurecido para destaque */
+    backdrop-filter: blur(10px); /* Fundo desfocado */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.wpp-modal-content {
+    background: rgba(255, 255, 255, 0.95); /* Branco sólido para contraste total */
+    width: 100%;
+    max-width: 380px;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: modalPop 0.3s ease-out;
+}
+
+.wpp-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 10px;
+}
+
+.wpp-modal-header h3 { 
+    margin: 0; 
+    font-size: 1.25rem; 
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.close-modal {
+    cursor: pointer;
+    font-size: 24px;
+    color: #999;
+    transition: 0.2s;
+}
+
+.close-modal:hover {
+    color: #ff4d4d;
+}
+
+.wpp-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wpp-modal-body button {
+    padding: 14px 18px;
+    border: 1px solid rgba(165, 139, 212, 0.2);
+    border-radius: 12px;
+    background: white;
+    color: #444;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s all;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.wpp-modal-body button:hover {
+    background: #a58bd4; /* Roxo da sua identidade */
+    color: white;
+    border-color: #a58bd4;
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(165, 139, 212, 0.3);
+}
+
+/* =========================================
+   ANIMAÇÕES E RESPONSIVIDADE
+   ========================================= */
+@keyframes modalPop {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@media screen and (max-width: 767px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .wpp-modal-content {
+        padding: 20px;
+        width: 90%;
+    }
+}
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        
-        <div class="header-section">
-            <div class="photo-frame">
-                <img src="img/header.jpg" alt="Beatriz Oli">
-            </div>
-        </div>
+    <section class="hero-top">
+        <img src="img/Beatriz Oliveira.jpg" alt="Beatriz Oliveira - Especialista em Estética">
+        <i data-lucide="chevron-down" class="scroll-icon"></i>
+    </section>
 
-        <div class="profile-info">
-            <h1>Beatriz Oli</h1>
-            <p>Estrategista Digital & Mentora</p>
-        </div>
-
-        <div class="links-section">
-            <a href="servicos.html" class="link-card">
-                <img src="img/1.png" alt="Serviços">
-            </a>
-
-            <a href="profile.html" class="link-card">
-                <img src="img/2.png" alt="Sobre">
-            </a>
-
-            <a href="https://wa.me/5589999767984" class="link-card">
-                <img src="img/3.png" alt="Contato">
-            </a>
-
-            <a href="https://www.instagram.com/agency_lidera/" class="link-card">
-                <img src="img/4.png" alt="Curso">
-            </a>
-        </div>
-
-        <div class="social-icons">
-            <a href="https://instagram.com/biaolip_" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://tiktok.com/@biaolip_" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/5589999767984" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-        <div class="faq-section">
-            <h3>Dúvidas Frequentes</h3>
-            <div class="faq-item">
-                <b>Como funcionam as consultorias?</b>
-                <p>As consultorias são personalizadas de acordo com o seu objetivo, com acompanhamento direto via WhatsApp para garantir sua evolução.</p>
-            </div>
-            <div class="faq-item">
-                <b>O curso tem certificado?</b>
-                <p>Sim! Ao concluir todas as aulas, você recebe o certificado de conclusão exclusivo assinado por Beatriz Oli.</p>
-            </div>
-        </div>
-
-        <div class="mensagem-bia">
-            <p>"Minha missão é ajudar você a transformar sua rotina e alcançar sua melhor versão. Vamos juntas?"</p>
-            <span>— Bia Oli</span>
-        </div>
-
+    <div class="section-intro reveal">
+        <h1>Beatriz Oliveira</h1>
+        <p class="description">
+            Meu foco é transformar negócios através de uma comunicação com propósito que conecta marcas ao público ideal e gera resultados reais.    
+        </p>
+        <div class="arrow-indicator">
+    <i class="fas fa-chevron-down"></i>
+</div>
     </div>
 
+    <section class="buttons-grid reveal">
+        <a href="servicos.html" class="btn-card">
+            <img src="img/1.png" alt="Conheça nossos Serviços">
+        </a>
+        <a href="profile.html" class="btn-card">
+            <img src="img/2.png" alt="Saiba mais sobre a Beatriz">
+        </a>
+        <a href="https://wa.me/5589999767984?text=Olá!%20Vi%20seu%20site%20no%20insta%20e%20gostaria%20de%20fazer%20um%20orçamento." class="btn-card">
+            <img src="img/3.png" alt="Fale conosco pelo WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/agency_lidera/" class="btn-card">
+            <img src="img/4.png" alt="Cursos e Especializações">
+        </a>
+    </section>
+
+    <div class="cta-box reveal">
+        <p class="cta-text">Será um prazer trabalharmos juntas!</p>
+        <div class="social-links">
+            <a href="https://wa.me/5589999767984?text=Olá!%20Vi%20seu%20site%20no%20insta%20e%20gostaria%20de%20fazer%20um%20orçamento." aria-label="WhatsApp">
+                <i data-lucide="message-circle"></i>
+            </a>
+            <a href="https://instagram.com/biaolip_" aria-label="Instagram">
+                <i data-lucide="instagram"></i>
+            </a>
+        </div>
+    </div>
+
+    <section class="hero-bottom reveal">
+        <img src="img/biaf.webp" alt="Atendimento Personalizado BiaOli">
+    </section>
+
+    <footer>
+        BiaOli
+    </footer>
+ <div class="whatsapp-float" onclick="toggleWppModal()">
+    <svg viewBox="0 0 32 32" class="whatsapp-icon">
+        <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.014 7.787l-2.014 7.353 7.525-1.972c2.31 1.274 4.975 2.002 7.81 2.002 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.608 0-5.051-0.704-7.155-1.925l-0.513-0.3-4.469 1.17 1.192-4.353-0.33-0.525c-1.332-2.121-2.099-4.632-2.099-7.327 0-7.359 5.975-13.333 13.333-13.333s13.333 5.975 13.333 13.333-5.975 13.333-13.333 13.333zM22.507 19.34c-0.356-0.178-2.107-1.039-2.441-1.156-0.333-0.117-0.577-0.178-0.819 0.178s-0.939 1.156-1.152 1.391c-0.213 0.235-0.427 0.267-0.783 0.089-0.356-0.178-1.504-0.554-2.864-1.769-1.059-0.945-1.774-2.112-1.981-2.469-0.213-0.356-0.023-0.548 0.155-0.725 0.161-0.158 0.356-0.415 0.534-0.622s0.237-0.356 0.356-0.593c0.118-0.237 0.059-0.445-0.030-0.622-0.089-0.178-0.819-1.975-1.123-2.706-0.296-0.713-0.598-0.617-0.822-0.628-0.213-0.011-0.457-0.013-0.701-0.013s-0.641 0.091-0.976 0.46c-0.334 0.368-1.275 1.246-1.275 3.039s1.309 3.522 1.488 3.759c0.178 0.237 2.575 3.931 6.237 5.513 0.871 0.377 1.551 0.602 2.081 0.771 0.875 0.278 1.672 0.239 2.301 0.145 0.702-0.105 2.107-0.86 2.404-1.691 0.297-0.832 0.297-1.545 0.208-1.693-0.089-0.148-0.326-0.237-0.682-0.415z"></path>
+    </svg>
+</div>
+
+<div id="wppModal" class="wpp-modal">
+    <div class="wpp-modal-content">
+        <div class="wpp-modal-header">
+            <h3>Como posso ajudar?</h3>
+            <span class="close-modal" onclick="toggleWppModal()">&times;</span>
+        </div>
+       <div class="wpp-modal-body">
+    <button onclick="sendWppMsg('Olá! Gostaria de saber mais sobre a edição de VSL / Criativos de Alta Conversão.')">
+        🎯 VSL & Criativos
+    </button>
+    
+    <button onclick="sendWppMsg('Oi! Tenho interesse em elevar o nível do meu canal no YouTube com suas edições.')">
+        🎬 Edição para YouTube
+    </button>
+    
+    <button onclick="sendWppMsg('Olá! Gostaria de um orçamento para edição de Reels / Shorts / TikTok dinâmicos.')">
+        📱 Vídeos Curtos (Reels/TikTok)
+    </button>
+    
+    <button onclick="sendWppMsg('Oi! Quero saber como funciona o serviço de edição para Lançamentos / Infoprodutos.')">
+        🚀 Lançamentos & Infoprodutos
+    </button>
+    
+    <button onclick="sendWppMsg('Vi seu portfólio e gostaria de bater um papo sobre um projeto personalizado!')">
+        💎 Projeto Personalizado
+    </button>
+</div>
+    </div>
+</div>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Inicializa os ícones elegantes
+        lucide.createIcons();
+
+        // Função para revelar elementos ao rolar
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Disparar uma vez para itens que já aparecem no topo
+        reveal();
+        const phoneNumber = "5589999767984";
+
+function toggleWppModal() {
+    const modal = document.getElementById("wppModal");
+    // Alterna entre flex e none
+    if (modal.style.display === "flex") {
+        modal.style.display = "none";
+    } else {
+        modal.style.display = "flex";
+    }
+}
+
+function sendWppMsg(message) {
+    // Codifica a mensagem para URL
+    const encodedMsg = encodeURIComponent(message);
+    const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+    
+    // Abre o WhatsApp
+    window.open(url, '_blank');
+    
+    // Fecha o modal
+    toggleWppModal();
+}
+
+// Fecha o modal se o usuário clicar fora da caixa branca
+window.onclick = function(event) {
+    const modal = document.getElementById("wppModal");
+    if (event.target == modal) {
+        toggleWppModal();
+    }
+}
+    </script>
 </body>
 </html>
