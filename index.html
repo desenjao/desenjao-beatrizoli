@@ -10,10 +10,12 @@
     
     <style>
         :root {
-            --bg-premium: #F5F2EE; /* Tom bege areia da sua referência */
-            --text-main: #3D3935;  /* Cinza quente muito escuro */
-            --accent: #8C7D70;     /* Tom taupe para detalhes */
+            --bg-premium: #F5F2EE;
+            --text-main: #3D3935;
+            --accent: #8C7D70;
             --white: #ffffff;
+            --skeleton-bg: #e0e0e0;
+            --skeleton-shine: #f0f0f0;
         }
 
         * { 
@@ -34,19 +36,138 @@
             line-height: 1.6;
         }
 
-        /* --- Animação de Entrada --- */
-        .reveal {
+        /* --- LOADING SCREEN --- */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-premium);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .loading-screen.hidden {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-out;
+            visibility: hidden;
         }
 
-        .reveal.active {
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--accent);
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loading-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        /* --- SKELETON LOADING --- */
+        .skeleton {
+            background: linear-gradient(90deg, 
+                var(--skeleton-bg) 25%, 
+                var(--skeleton-shine) 50%, 
+                var(--skeleton-bg) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .skeleton-hero {
+            width: 100%;
+            height: 65vh;
+            background-color: var(--skeleton-bg);
+        }
+
+        .skeleton-title {
+            width: 250px;
+            height: 40px;
+            margin: 0 auto 15px;
+        }
+
+        .skeleton-text {
+            width: 300px;
+            height: 60px;
+            margin: 0 auto 25px;
+        }
+
+        .skeleton-divider {
+            width: 40px;
+            height: 1px;
+            margin: 0 auto;
+        }
+
+        .skeleton-card {
+            width: 100%;
+            height: 120px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .skeleton-cta {
+            width: 250px;
+            height: 30px;
+            margin: 0 auto 30px;
+        }
+
+        .skeleton-social {
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            border-radius: 25px;
+        }
+
+        .skeleton-bottom {
+            width: 100%;
+            height: 45vh;
+            margin-top: -20px;
+        }
+
+        /* --- Elementos escondidos até carregar --- */
+        .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+        }
+
+        .content.visible {
             opacity: 1;
-            transform: translateY(0);
         }
 
-        /* --- Hero Superior (Estilo Editorial) --- */
+        /* Seus estilos originais permanecem aqui */
         .hero-top {
             width: 100%;
             height: 65vh;
@@ -77,7 +198,6 @@
             60% {transform: translateX(-50%) translateY(-5px);}
         }
 
-        /* --- Seção Sobre Mim --- */
         .section-intro {
             text-align: center;
             padding: 60px 25px;
@@ -108,31 +228,30 @@
             margin: 0 auto;
             opacity: 0.5;
         }
-        .arrow-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    color: var(--accent); /* Usa a cor de destaque da Beatriz */
-    font-size: 1.2rem;
-    opacity: 0.7;
-    
-    /* Animação de flutuação e brilho */
-    animation: arrow-wave 2s infinite ease-in-out;
-}
 
-@keyframes arrow-wave {
-    0%, 100% {
-        transform: translateY(0);
-        text-shadow: 0 0 0px var(--accent);
-    }
-    50% {
-        transform: translateY(10px); /* Move para baixo como uma onda */
-        text-shadow: 0 0 15px var(--accent); /* Brilha no pico do movimento */
-        opacity: 1;
-    }
-}
-        /* --- Grid de Botões (Cards do Canva) --- */
+        .arrow-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            color: var(--accent);
+            font-size: 1.2rem;
+            opacity: 0.7;
+            animation: arrow-wave 2s infinite ease-in-out;
+        }
+
+        @keyframes arrow-wave {
+            0%, 100% {
+                transform: translateY(0);
+                text-shadow: 0 0 0px var(--accent);
+            }
+            50% {
+                transform: translateY(10px);
+                text-shadow: 0 0 15px var(--accent);
+                opacity: 1;
+            }
+        }
+
         .buttons-grid {
             width: 90%;
             max-width: 450px;
@@ -144,7 +263,7 @@
 
         .btn-card {
             width: 100%;
-            border-radius: 8px; /* Bordas mais retas transmitem mais seriedade/luxo */
+            border-radius: 8px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
@@ -164,7 +283,6 @@
 
         .btn-card:active { transform: scale(0.98); }
 
-        /* --- Call To Action & Rodapé --- */
         .cta-box {
             text-align: center;
             padding: 80px 30px;
@@ -225,242 +343,311 @@
             letter-spacing: 2px;
             opacity: 0.8;
         }
-        /* =========================================
-   BOTÃO WHATSAPP FLUTUANTE
-   ========================================= */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    text-decoration: none;
-}
 
-.whatsapp-icon {
-    width: 32px;
-    height: 32px;
-    fill: white;
-}
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            text-decoration: none;
+        }
 
-.whatsapp-float:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-}
+        .whatsapp-icon {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
 
-/* =========================================
-   MODAL DE MENSAGENS (GLASSMORPHISM)
-   ========================================= */
-.wpp-modal {
-    display: none; /* Controlado pelo JS */
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Overlay escurecido para destaque */
-    backdrop-filter: blur(10px); /* Fundo desfocado */
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
 
-.wpp-modal-content {
-    background: rgba(255, 255, 255, 0.95); /* Branco sólido para contraste total */
-    width: 100%;
-    max-width: 380px;
-    border-radius: 24px;
-    padding: 25px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    animation: modalPop 0.3s ease-out;
-}
+        .wpp-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-.wpp-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding-bottom: 10px;
-}
+        .wpp-modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%;
+            max-width: 380px;
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: modalPop 0.3s ease-out;
+        }
 
-.wpp-modal-header h3 { 
-    margin: 0; 
-    font-size: 1.25rem; 
-    color: #1a1a1a;
-    font-weight: 700;
-}
+        .wpp-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 10px;
+        }
 
-.close-modal {
-    cursor: pointer;
-    font-size: 24px;
-    color: #999;
-    transition: 0.2s;
-}
+        .wpp-modal-header h3 { 
+            margin: 0; 
+            font-size: 1.25rem; 
+            color: #1a1a1a;
+            font-weight: 700;
+        }
 
-.close-modal:hover {
-    color: #ff4d4d;
-}
+        .close-modal {
+            cursor: pointer;
+            font-size: 24px;
+            color: #999;
+            transition: 0.2s;
+        }
 
-.wpp-modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
+        .close-modal:hover {
+            color: #ff4d4d;
+        }
 
-.wpp-modal-body button {
-    padding: 14px 18px;
-    border: 1px solid rgba(165, 139, 212, 0.2);
-    border-radius: 12px;
-    background: white;
-    color: #444;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-    transition: 0.3s all;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
+        .wpp-modal-body {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.wpp-modal-body button:hover {
-    background: #a58bd4; /* Roxo da sua identidade */
-    color: white;
-    border-color: #a58bd4;
-    transform: translateX(8px);
-    box-shadow: 0 4px 12px rgba(165, 139, 212, 0.3);
-}
+        .wpp-modal-body button {
+            padding: 14px 18px;
+            border: 1px solid rgba(165, 139, 212, 0.2);
+            border-radius: 12px;
+            background: white;
+            color: #444;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s all;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
 
-/* =========================================
-   ANIMAÇÕES E RESPONSIVIDADE
-   ========================================= */
-@keyframes modalPop {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-}
+        .wpp-modal-body button:hover {
+            background: #a58bd4;
+            color: white;
+            border-color: #a58bd4;
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(165, 139, 212, 0.3);
+        }
 
-@media screen and (max-width: 767px) {
-    .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .wpp-modal-content {
-        padding: 20px;
-        width: 90%;
-    }
-}
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media screen and (max-width: 767px) {
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .wpp-modal-content {
+                padding: 20px;
+                width: 90%;
+            }
+        }
     </style>
 </head>
 
 <body>
-
-    <section class="hero-top">
-        <img src="img/Beatriz Oliveira.jpg" alt="Beatriz Oliveira - Especialista em Estética">
-    </section>
-
-    <div class="section-intro reveal">
-        <h1>Beatriz Oliveira</h1>
-        <p class="description">
-          Estrategista em campanhas de vendas e posicionamento estratégico para empresas que querem vender com propósito.
-
- 
-        </p>
-        
-    <i class="fas fa-chevron-down"></i>
-</div>
+    <!-- Tela de Loading Inicial -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <div class="loading-text">Carregando experiência BiaOli</div>
     </div>
 
-    <section class="buttons-grid reveal">
-        <a href="servicos.html" class="btn-card">
-            <img src="img/1.png" alt="Conheça nossos Serviços">
-        </a>
-        <a href="profile.html" class="btn-card">
-            <img src="img/2.png" alt="Saiba mais sobre a Beatriz">
-        </a>
-        <a href="https://wa.me/5589999767984?text=Olá!%20Vi%20seu%20site%20no%20insta%20e%20gostaria%20de%20fazer%20um%20orçamento." class="btn-card">
-            <img src="img/3.png" alt="Fale conosco pelo WhatsApp">
-        </a>
-        <a href="https://www.instagram.com/agency_lidera/" class="btn-card">
-            <img src="img/4.png" alt="Cursos e Especializações">
-        </a>
-    </section>
+    <!-- Skeleton Loading enquanto as imagens carregam -->
+    <div class="content" id="mainContent">
+        <div class="skeleton-hero skeleton"></div>
 
-    <div class="cta-box reveal">
-        <p class="cta-text">Será um prazer trabalharmos juntas!</p>
-        <div class="social-links">
-            <a href="https://wa.me/5589999767984?text=Olá!%20Vi%20seu%20site%20no%20insta%20e%20gostaria%20de%20fazer%20um%20orçamento." aria-label="WhatsApp">
-                <i data-lucide="message-circle"></i>
+        <div class="section-intro">
+            <div class="skeleton-title skeleton"></div>
+            <div class="skeleton-text skeleton"></div>
+            <div class="skeleton-divider skeleton"></div>
+        </div>
+
+        <section class="buttons-grid">
+            <div class="skeleton-card skeleton"></div>
+            <div class="skeleton-card skeleton"></div>
+            <div class="skeleton-card skeleton"></div>
+            <div class="skeleton-card skeleton"></div>
+        </section>
+
+        <div class="cta-box">
+            <div class="skeleton-cta skeleton"></div>
+            <div class="skeleton-social skeleton"></div>
+        </div>
+
+        <div class="skeleton-bottom skeleton"></div>
+
+        <footer>
+            <div class="skeleton-text skeleton" style="width: 100px; height: 30px; margin: 0 auto;"></div>
+        </footer>
+    </div>
+
+    <!-- Conteúdo Real (inicialmente escondido) -->
+    <div class="content" id="realContent" style="display: none;">
+        <section class="hero-top">
+            <img src="img/Beatriz-Oliveira.webp" alt="Beatriz Oliveira - Especialista em Estética" class="lazy-image">
+        </section>
+
+        <div class="section-intro reveal">
+            <h1>Beatriz Oliveira</h1>
+            <p class="description">
+                Estrategista em campanhas de vendas e posicionamento estratégico para empresas que querem vender com propósito.
+            </p>
+            <i class="fas fa-chevron-down arrow-indicator"></i>
+        </div>
+
+        <section class="buttons-grid reveal">
+            <a href="servicos.html" class="btn-card">
+                <img src="img/1.webp" alt="Conheça nossos Serviços" class="lazy-image">
             </a>
-            <a href="https://instagram.com/biaolip_" aria-label="Instagram">
-                <i data-lucide="instagram"></i>
+            <a href="profile.html" class="btn-card">
+                <img src="img/2.webp" alt="Saiba mais sobre a Beatriz" class="lazy-image">
             </a>
+            <a href="https://wa.me/5589999767984?text=Olá!%20Vi%20seu%20site%20no%20insta%20e%20gostaria%20de%20fazer%20um%20orçamento." class="btn-card">
+                <img src="img/3.webp" alt="Fale conosco pelo WhatsApp" class="lazy-image">
+            </a>
+            <a href="https://www.instagram.com/agency_lidera/" class="btn-card">
+                <img src="img/4.webp" alt="Cursos e Especializações" class="lazy-image">
+            </a>
+        </section>
+
+        <div class="cta-box reveal">
+            <p class="cta-text">Será um prazer trabalharmos juntas!</p>
+            <div class="social-links">
+                <a href="https://wa.me/5589999767984?text=Olá!%20Vi%20seu%20site%20no%20insta%20e%20gostaria%20de%20fazer%20um%20orçamento." aria-label="WhatsApp">
+                    <i data-lucide="message-circle"></i>
+                </a>
+                <a href="https://instagram.com/biaolip_" aria-label="Instagram">
+                    <i data-lucide="instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <section class="hero-bottom reveal">
+            <img src="img/biaf.webp" alt="Atendimento Personalizado BiaOli" class="lazy-image">
+        </section>
+
+        <footer>
+            BiaOli
+        </footer>
+    </div>
+
+    <div class="whatsapp-float" onclick="toggleWppModal()">
+        <svg viewBox="0 0 32 32" class="whatsapp-icon">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.014 7.787l-2.014 7.353 7.525-1.972c2.31 1.274 4.975 2.002 7.81 2.002 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.608 0-5.051-0.704-7.155-1.925l-0.513-0.3-4.469 1.17 1.192-4.353-0.33-0.525c-1.332-2.121-2.099-4.632-2.099-7.327 0-7.359 5.975-13.333 13.333-13.333s13.333 5.975 13.333 13.333-5.975 13.333-13.333 13.333zM22.507 19.34c-0.356-0.178-2.107-1.039-2.441-1.156-0.333-0.117-0.577-0.178-0.819 0.178s-0.939 1.156-1.152 1.391c-0.213 0.235-0.427 0.267-0.783 0.089-0.356-0.178-1.504-0.554-2.864-1.769-1.059-0.945-1.774-2.112-1.981-2.469-0.213-0.356-0.023-0.548 0.155-0.725 0.161-0.158 0.356-0.415 0.534-0.622s0.237-0.356 0.356-0.593c0.118-0.237 0.059-0.445-0.030-0.622-0.089-0.178-0.819-1.975-1.123-2.706-0.296-0.713-0.598-0.617-0.822-0.628-0.213-0.011-0.457-0.013-0.701-0.013s-0.641 0.091-0.976 0.46c-0.334 0.368-1.275 1.246-1.275 3.039s1.309 3.522 1.488 3.759c0.178 0.237 2.575 3.931 6.237 5.513 0.871 0.377 1.551 0.602 2.081 0.771 0.875 0.278 1.672 0.239 2.301 0.145 0.702-0.105 2.107-0.86 2.404-1.691 0.297-0.832 0.297-1.545 0.208-1.693-0.089-0.148-0.326-0.237-0.682-0.415z"></path>
+        </svg>
+    </div>
+
+    <div id="wppModal" class="wpp-modal">
+        <div class="wpp-modal-content">
+            <div class="wpp-modal-header">
+                <h3>Como posso ajudar?</h3>
+                <span class="close-modal" onclick="toggleWppModal()">&times;</span>
+            </div>
+            <div class="wpp-modal-body">
+                <button onclick="sendWppMsg('Olá! Gostaria de saber mais sobre a edição de VSL / Criativos de Alta Conversão.')">
+                    🎯 VSL & Criativos
+                </button>
+                <button onclick="sendWppMsg('Oi! Tenho interesse em elevar o nível do meu canal no YouTube com suas edições.')">
+                    🎬 Edição para YouTube
+                </button>
+                <button onclick="sendWppMsg('Olá! Gostaria de um orçamento para edição de Reels / Shorts / TikTok dinâmicos.')">
+                    📱 Vídeos Curtos (Reels/TikTok)
+                </button>
+                <button onclick="sendWppMsg('Oi! Quero saber como funciona o serviço de edição para Lançamentos / Infoprodutos.')">
+                    🚀 Lançamentos & Infoprodutos
+                </button>
+                <button onclick="sendWppMsg('Vi seu portfólio e gostaria de bater um papo sobre um projeto personalizado!')">
+                    💎 Projeto Personalizado
+                </button>
+            </div>
         </div>
     </div>
-
-    <section class="hero-bottom reveal">
-        <img src="img/biaf.webp" alt="Atendimento Personalizado BiaOli">
-    </section>
-
-    <footer>
-        BiaOli
-    </footer>
- <div class="whatsapp-float" onclick="toggleWppModal()">
-    <svg viewBox="0 0 32 32" class="whatsapp-icon">
-        <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.733 5.476 2.014 7.787l-2.014 7.353 7.525-1.972c2.31 1.274 4.975 2.002 7.81 2.002 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.333c-2.608 0-5.051-0.704-7.155-1.925l-0.513-0.3-4.469 1.17 1.192-4.353-0.33-0.525c-1.332-2.121-2.099-4.632-2.099-7.327 0-7.359 5.975-13.333 13.333-13.333s13.333 5.975 13.333 13.333-5.975 13.333-13.333 13.333zM22.507 19.34c-0.356-0.178-2.107-1.039-2.441-1.156-0.333-0.117-0.577-0.178-0.819 0.178s-0.939 1.156-1.152 1.391c-0.213 0.235-0.427 0.267-0.783 0.089-0.356-0.178-1.504-0.554-2.864-1.769-1.059-0.945-1.774-2.112-1.981-2.469-0.213-0.356-0.023-0.548 0.155-0.725 0.161-0.158 0.356-0.415 0.534-0.622s0.237-0.356 0.356-0.593c0.118-0.237 0.059-0.445-0.030-0.622-0.089-0.178-0.819-1.975-1.123-2.706-0.296-0.713-0.598-0.617-0.822-0.628-0.213-0.011-0.457-0.013-0.701-0.013s-0.641 0.091-0.976 0.46c-0.334 0.368-1.275 1.246-1.275 3.039s1.309 3.522 1.488 3.759c0.178 0.237 2.575 3.931 6.237 5.513 0.871 0.377 1.551 0.602 2.081 0.771 0.875 0.278 1.672 0.239 2.301 0.145 0.702-0.105 2.107-0.86 2.404-1.691 0.297-0.832 0.297-1.545 0.208-1.693-0.089-0.148-0.326-0.237-0.682-0.415z"></path>
-    </svg>
-</div>
-
-<div id="wppModal" class="wpp-modal">
-    <div class="wpp-modal-content">
-        <div class="wpp-modal-header">
-            <h3>Como posso ajudar?</h3>
-            <span class="close-modal" onclick="toggleWppModal()">&times;</span>
-        </div>
-       <div class="wpp-modal-body">
-    <button onclick="sendWppMsg('Olá! Gostaria de saber mais sobre a edição de VSL / Criativos de Alta Conversão.')">
-        🎯 VSL & Criativos
-    </button>
-    
-    <button onclick="sendWppMsg('Oi! Tenho interesse em elevar o nível do meu canal no YouTube com suas edições.')">
-        🎬 Edição para YouTube
-    </button>
-    
-    <button onclick="sendWppMsg('Olá! Gostaria de um orçamento para edição de Reels / Shorts / TikTok dinâmicos.')">
-        📱 Vídeos Curtos (Reels/TikTok)
-    </button>
-    
-    <button onclick="sendWppMsg('Oi! Quero saber como funciona o serviço de edição para Lançamentos / Infoprodutos.')">
-        🚀 Lançamentos & Infoprodutos
-    </button>
-    
-    <button onclick="sendWppMsg('Vi seu portfólio e gostaria de bater um papo sobre um projeto personalizado!')">
-        💎 Projeto Personalizado
-    </button>
-</div>
-    </div>
-</div>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         // Inicializa os ícones elegantes
         lucide.createIcons();
+
+        const phoneNumber = "5589999767984";
+
+        // Função para carregar imagens e mostrar conteúdo real
+        function loadImages() {
+            const images = document.querySelectorAll('.lazy-image');
+            const totalImages = images.length;
+            let loadedImages = 0;
+
+            function imageLoaded() {
+                loadedImages++;
+                if (loadedImages === totalImages) {
+                    // Todas as imagens carregaram
+                    setTimeout(() => {
+                        // Esconde loading screen
+                        document.getElementById('loadingScreen').classList.add('hidden');
+                        
+                        // Esconde skeleton e mostra conteúdo real
+                        document.getElementById('mainContent').style.display = 'none';
+                        const realContent = document.getElementById('realContent');
+                        realContent.style.display = 'flex';
+                        realContent.classList.add('visible');
+                        
+                        // Inicializa as animações de scroll
+                        reveal();
+                    }, 500); // Pequeno delay para transição suave
+                }
+            }
+
+            if (totalImages === 0) {
+                // Se não houver imagens, carrega direto
+                document.getElementById('loadingScreen').classList.add('hidden');
+                document.getElementById('mainContent').style.display = 'none';
+                document.getElementById('realContent').style.display = 'flex';
+                document.getElementById('realContent').classList.add('visible');
+                reveal();
+            } else {
+                images.forEach(img => {
+                    if (img.complete) {
+                        imageLoaded();
+                    } else {
+                        img.addEventListener('load', imageLoaded);
+                        img.addEventListener('error', imageLoaded); // Mesmo com erro, continua
+                    }
+                });
+            }
+        }
 
         // Função para revelar elementos ao rolar
         function reveal() {
@@ -476,39 +663,41 @@
         }
 
         window.addEventListener("scroll", reveal);
-        // Disparar uma vez para itens que já aparecem no topo
-        reveal();
-        const phoneNumber = "5589999767984";
 
-function toggleWppModal() {
-    const modal = document.getElementById("wppModal");
-    // Alterna entre flex e none
-    if (modal.style.display === "flex") {
-        modal.style.display = "none";
-    } else {
-        modal.style.display = "flex";
-    }
-}
+        // Inicia o carregamento das imagens
+        window.addEventListener('load', function() {
+            loadImages();
+        });
 
-function sendWppMsg(message) {
-    // Codifica a mensagem para URL
-    const encodedMsg = encodeURIComponent(message);
-    const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
-    
-    // Abre o WhatsApp
-    window.open(url, '_blank');
-    
-    // Fecha o modal
-    toggleWppModal();
-}
+        // Fallback: se demorar muito, carrega após 5 segundos
+        setTimeout(function() {
+            if (!document.getElementById('realContent').classList.contains('visible')) {
+                loadImages();
+            }
+        }, 5000);
 
-// Fecha o modal se o usuário clicar fora da caixa branca
-window.onclick = function(event) {
-    const modal = document.getElementById("wppModal");
-    if (event.target == modal) {
-        toggleWppModal();
-    }
-}
+        function toggleWppModal() {
+            const modal = document.getElementById("wppModal");
+            if (modal.style.display === "flex") {
+                modal.style.display = "none";
+            } else {
+                modal.style.display = "flex";
+            }
+        }
+
+        function sendWppMsg(message) {
+            const encodedMsg = encodeURIComponent(message);
+            const url = `https://wa.me/${phoneNumber}?text=${encodedMsg}`;
+            window.open(url, '_blank');
+            toggleWppModal();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("wppModal");
+            if (event.target == modal) {
+                toggleWppModal();
+            }
+        }
     </script>
 </body>
 </html>
